@@ -122,7 +122,8 @@ class Labora6Widget(ScriptedLoadableModuleWidget):
     self.onSelect()
 
 
-    #//////////////////////////////////////////////////////////////////////////////////////////
+    #Modyfikacja kodu
+	
     # Parameters Area
     #
     parametersCollapsibleButton2 = ctk.ctkCollapsibleButton()
@@ -162,13 +163,13 @@ class Labora6Widget(ScriptedLoadableModuleWidget):
     #
     # Apply Button
     #
-    self.applyButton2 = qt.QPushButton("Apply")
-    self.applyButton2.toolTip = "Run the algorithm."
-    self.applyButton2.enabled = False
-    parametersFormLayout.addRow(self.applyButton2)
+    self.applyButton1 = qt.QPushButton("Apply")
+    self.applyButton1.toolTip = "Run the algorithm."
+    self.applyButton1.enabled = False
+    parametersFormLayout.addRow(self.applyButton1)
 
     # connections
-    self.applyButton2.connect('clicked(bool)', self.onApplyButton1)
+    self.applyButton1.connect('clicked(bool)', self.onApplyButton1)
     self.inputSelector2.connect("currentNodeChanged(vtkMRMLNode*)", self.onSelect2)
 
     # Add vertical spacer
@@ -176,7 +177,8 @@ class Labora6Widget(ScriptedLoadableModuleWidget):
 
     # Refresh Apply button state
     self.onSelect()
-    #//////////////////////////////////////////////////////////////////////////////////////////
+    
+	
   def cleanup(self):
     pass
 
@@ -184,7 +186,7 @@ class Labora6Widget(ScriptedLoadableModuleWidget):
     self.applyButton.enabled = self.inputSelector.currentNode() and self.outputSelector.currentNode()
 
   def onSelect2(self):
-    self.applyButton2.enabled = self.inputSelector2.currentNode()
+    self.applyButton1.enabled = self.inputSelector2.currentNode()
 
   def onApplyButton(self):
     logic = Labora6Logic()
